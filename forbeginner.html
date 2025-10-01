@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio & Learning Journey</title>
+    <style>
+        /* 기존 스타일 유지 */
+        [기존 스타일 코드...]
+
+        /* 프로젝트 세부사항 스타일 추가 */
+        #projectDetails {
+            display: none;
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e8f4ff 100%);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(90deg, hsl(212, 72%, 59%) 0%, #50e3c2 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(74,144,226,0.2);
+            transition: 0.3s;
+            z-index: 2000;
+            display: none;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74,144,226,0.3);
+        }
+
+        .week-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0, 1, 1, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .week-section:nth-child(2) { animation-delay: 0.2s; }
+        .week-section:nth-child(3) { animation-delay: 0.4s; }
+
+        .learning-objectives {
+            background: linear-gradient(135deg, #f8fafc 0%, #e8f4ff 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .learning-objectives h4 {
+            color: #4a90e2;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .learning-objectives ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .learning-objectives li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .learning-objectives li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #50e3c2;
+        }
+
+        .code-example {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            font-family: 'Consolas', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-example::before {
+            content: 'Code Example';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: linear-gradient(90deg, #4a90e2 0%, #50e3c2 100%);
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: white;
+        }
+
+        .tech-stack {
+            margin-top: 20px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(90deg, #4a90e2 0%, #50e3c2 100%);
+            color: white;
+            border-radius: 25px;
+            margin: 5px;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(74,144,226,0.2);
+        }
+
+        #projectDetails h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin: 40px 0;
+            background: linear-gradient(90deg, #4a90e2 0%, #50e3c2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .week-section h3 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            #projectDetails {
+                padding: 60px 15px;
+            }
+
+            .week-section {
+                padding: 20px;
+            }
+
+            #projectDetails h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 기존 네비게이션 바 유지 -->
+    <nav class="navbar">
+        [기존 네비게이션 코드...]
+    </nav>
+
+    <button class="back-btn" onclick="showMainPage()">← 돌아가기</button>
+
+    <!-- 메인 콘텐츠 -->
+    <div id="mainContent">
+        <!-- 기존 헤더 섹션 -->
+        [기존 헤더 코드...]
+
+        <!-- 프로젝트 섹션 수정 -->
+        <section class="projects" id="projects">
+            <h2>Learning Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" onclick="showProjectDetails()">
+                    <div class="project-image" style="background-image: url('project1.jpg')"></div>
+                    <div class="project-info">
+                        <h3>Web Development Course</h3>
+                        <p>7주차 웹 프로그래밍 학습 과정</p>
+                    </div>
+                </div>
+                [나머지 프로젝트 카드...]
+            </div>
+        </section>
+
+        <!-- 기존 스킬과 연락처 섹션 -->
+        [기존 스킬과 연락처 섹션 코드...]
+    </div>
+
+    <!-- 프로젝트 세부사항 -->
+    <div id="projectDetails">
+        [이전에 제공한 세부 내용 코드...]
+    </div>
+
+    <script>
+        // 기존 스크립트 유지
+        [기존 스크립트 코드...]
+
+        // 프로젝트 세부사항 표시/숨김 함수
+        function showProjectDetails() {
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('projectDetails').style.display = 'block';
+            document.querySelector('.back-btn').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function showMainPage() {
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('projectDetails').style.display = 'none';
+            document.querySelector('.back-btn').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
