@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>손희창의 찬란한 포트폴리오</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    background: linear-gradient(135deg, #4a90e2, #764ba2); /* 배경색 복원 */
+  }
+
+  section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 중앙(center) → 위(flex-start) 변경 */
+    scroll-snap-align: start;
+    padding: 40px;
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 40px;
+    animation: fadeIn 1s ease forwards;
+    margin-top: 40px; /* 추가: 위에서 살짝 떨어짐 */
+  }
+
+  .graphic-container {
+    width: 350px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    align-self: center;
+  }
+
+  .slider { width: 100%; height: 100%; position: relative; overflow: hidden; }
+  .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease-in-out; }
+  .slide.active { opacity: 1; }
+  .slider-nav { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+  .slide-btn { width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; padding: 0; transition: 0.3s;}
+  .slide-btn.active { background: white; }
+  .skills-graphic { width: 100%; height: 100%; animation: rotate 20s linear infinite; transform-origin: center; }
+  .skill-circle { fill: none; stroke: rgba(255, 255, 255, 0.2); stroke-width: 3; animation: pulse 2s ease-in-out infinite; }
+  footer { text-align: center; font-size: 0.9rem; margin-top: 20px; }
+  @keyframes pulse { 0% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 0.8; } 100% { transform: scale(1); opacity: 0.5; } }
+  @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+  @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  /* 프로젝트 카드 스타일 추가 */
+  #projects .container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 900px;
+    align-items: stretch; /* 추가 */
+  }
+  .project-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 25px 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(10px);
+  cursor: default;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px; /* 높이 통일 위해 고정 */
+  }
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.4);
+  }
+  .project-card h3 {
+    margin-top: 0;
+    color: #ffd700;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .project-card p {
+    margin: 6px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #eee;
+  }
+  @media (max-width: 600px) {
+    #projects .container {
+      padding: 0 20px;
+    }
+  }
+#projects {
+  background: linear-gradient(135deg, #764ba2, #4a90e2); /* 프로젝트 섹션 배경 */
+  padding-bottom: 5px; /* 아래 쪽 여백 추가 */
+  border-bottom: 4px solid #4a90e2; /* 맨 아래 줄 추가 */
+}
+</style>
+</head>
+<body>
+
+<!-- 첫 번째 섹션: 소개 -->
+<section id="intro">
+  <div class="container">
+    <div class="graphic-container">
+      <div class="slider">
+        <div class="slide active">
+          <svg viewBox="0 0 200 200" class="skills-graphic">
+            <circle cx="100" cy="100" r="80" class="skill-circle"/>
+            <circle cx="100" cy="100" r="60" class="skill-circle"/>
+            <circle cx="100" cy="100" r="40" class="skill-circle"/>
+            <text x="100" y="70">💻</text>
+            <text x="140" y="100">🚀</text>
+            <text x="100" y="130">⚡</text>
+            <text x="60" y="100">🎨</text>
+          </svg>
+        </div>
+        <div class="slide">
+          <svg viewBox="0 0 200 200" class="skills-graphic">
+            <rect x="60" y="60" width="80" height="80" class="skill-circle"/>
+            <text x="100" y="100">🎯</text>
+            <text x="100" y="140">💡</text>
+          </svg>
+        </div>
+        <div class="slide">
+          <svg viewBox="0 0 200 200" class="skills-graphic">
+            <polygon points="100,50 150,150 50,150" class="skill-circle"/>
+            <text x="100" y="120">⚡</text>
+            <text x="100" y="160">✨</text>
+          </svg>
+        </div>
+      </div>
+      <div class="slider-nav">
+        <button class="slide-btn active" data-slide="0"></button>
+        <button class="slide-btn" data-slide="1"></button>
+        <button class="slide-btn" data-slide="2"></button>
+      </div>
+    </div>
+    <div>
+      <h1>IT학부 손희창</h1>
+      <h2>자기소개</h2>
+        <ul>
+          <li>끊임없는 열정으로 웹 개발의 새로운 지평을 여는 신입 개발자입니다!</li>
+          <li>임팩트 있는 아이디어와 깔끔한 코드로 사용자 경험을 해보는 것이 제 목표입니다.</li>
+          <li>매일 1%씩 성장하여 누가 봐도 성실하고 열심히 임하는 개발자가 되도록 하겠습니다!</li>
+        </ul>
+         <footer>© 202510035 손희창</footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 두 번째 섹션: 프로젝트 -->
+<section id="projects">
+  <div class="container">
+    <h2>프로젝트</h2>
+    <div class="project-card">
+      <h3>🔹 반응형 포트폴리오 웹</h3>
+      <p><strong>기술:</strong> React, CSS Grid, 애니메이션</p>
+      <p>다양한 디바이스에서 완벽한 가독성을 위한 반응형 디자인 구현, 다크모드와 부드러운 애니메이션 적용, 직접 개발부터 배포까지 담당</p>
+    </div>
+    <div class="project-card">
+      <h3>🔹 컬러 테마 변경 사이트</h3>
+      <p><strong>기술:</strong> JavaScript, 로컬 스토리지, UX/UI 설계</p>
+      <p>사용자가 선택한 컬러 테마를 저장 및 적용하는 인터랙티브 기능 개발, 사용 편의성을 고려한 UI 설계</p>
+    </div>
+    <div class="project-card">
+      <h3>🔹 인터랙티브 애니메이션 공부 프로젝트</h3>
+      <p><strong>기술:</strong> SVG, Canvas, 사용자 인터랙션</p>
+      <p>사용자 입력에 반응하는 인터랙티브 애니메이션 구현, 물리 엔진 컨셉 참고, 반복 프로토타입 제작으로 완성도 향상</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const buttons = document.querySelectorAll('.slide-btn');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
+    slides[index].classList.add('active');
+    buttons[index].classList.add('active');
+  }
+
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 5000);
+
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      currentSlide = index;
+      showSlide(currentSlide);
+    });
+  });
+</script>
+</body>
+</html>
